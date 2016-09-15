@@ -1,3 +1,15 @@
+The Jekyll templating and infrastructure in this repo is based on mmistakes/minimal-mistakes,
+and is published under the MIT License (see below).
+
+All content in this repo beyond the minimal-mistakes templating (such as all content
+related to Idris) is published under the Creative Commons CC0 License.
+As such, to the extent possible under law, the authors have waived all copyright
+and related or neighboring rights to this material.
+
+More information concerning the CC0 can be found online at:
+http://creativecommons.org/publicdomain/zero/1.0/
+
+----------------------
 The MIT License (MIT)
 
 Copyright (c) 2016 Michael Rose
