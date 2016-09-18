@@ -15,9 +15,11 @@ __Work in progress! Not yet reviewed.__\\
 For now, please consider this a rapid prototype. Also, please be aware that
 the primary author of this material is not associated with the Idris
 project and has not yet written much Idris code. This is a learning
-experience for all of us. For an authoritative, yet still drafty, introduction to
+experience for all of us.\\
+\\
+For an authoritative, yet still drafty, introduction to
 Idris, see the work-in-progress book by its creator:
-[Type-Driven Development with Idris](https://www.manning.com/books/type-driven-development-with-idris)
+[Type-Driven Development with Idris](https://www.manning.com/books/type-driven-development-with-idris).
 {: .notice--warning}
 
 ## Table of Contents
