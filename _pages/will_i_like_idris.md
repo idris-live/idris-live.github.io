@@ -16,7 +16,7 @@ Idris is a beautiful language. That's a matter of taste, of course. But if you a
 expressive code, you may find it in Idris. I do.
 
 Most likely, you are here because you heard that dependent types are cool. You may even have heard
-that Idris is the only [Pac-Man-complete](https://twitter.com/edwinbrady/status/384671269490540544)
+that Idris is the first [Pac-Man-complete](https://twitter.com/edwinbrady/status/384671269490540544)
 language with dependent types. Dependent types are a great reason to visit Idris. If you are
 enthusiastic about exploring the new programming frontier of dependent types, they may be a good enough
 reason for you to stay.
