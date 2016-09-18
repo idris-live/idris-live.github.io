@@ -39,6 +39,6 @@ the best use of this power. We will learn a lot by pushing out toward the fronti
 I am more interested in Idris as a clean, consistent language with a type system that can carry
 me as far as I choose to go. From what I have seen so far, I trust Idris' creator,
 [Edwin Brady](https://edwinb.wordpress.com), to lead us into this new frontier and help us
-quietly walk past what dragons we may find.
+walk quietly past what dragons we may find.
 
 The next section will help you with [Understanding Dependent Types](/understanding_dependent_types).
