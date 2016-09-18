@@ -4,6 +4,8 @@ permalink: /understanding_dependent_types
 
 # Understanding Dependent Types
 
+_Updated September 18, 2016_
+
 [Wikipedia](https://en.wikipedia.org/wiki/Dependent_type) provides a good top-level definition of dependent types:
 
 > A dependent type is a type whose definition depends on a value. A "pair of integers" is a type.
