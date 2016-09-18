@@ -9,7 +9,7 @@ This site supplements the official [Idris Tutorial](http://docs.idris-lang.org/e
 to provide a gentler introduction for programmers who don't already
 have a background in dependently typed languages, and/or who don't know Haskell.
 
-*Work in progress! Not yet useful*\\
+__Work in progress! Not yet useful__\\
 For now, please consider this a rapid prototype. Also, please be aware that
 the primary author of this material is not associated with the Idris
 project and has not yet written much Idris code. This is a learning
