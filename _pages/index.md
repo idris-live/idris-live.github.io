@@ -17,7 +17,9 @@ have a background in dependently typed languages, and/or who don't know Haskell.
 | Section | When to Read It | Intended Audience |
 |---------|-----------------|-------------------|
 | [Will I like Idris?](/will_i_like_idris)| before the official tutorial | everyone new to Idris |
-| [Understanding Dependent Types](/understanding_dependent_types)| before the official tutorial | everyone new to dependent types |
+| [Understanding Dependent Types](/understanding_dependent_types)| for a taste of dependent types, or if they get confusing | everyone new to dependent types |
+| [How Do Proofs Fit Into This?](/how_do_proofs_fit)| before reading *Example: The Well-Typed Interpreter* in the official tutorial | everyone new to dependent types |
+
 
 If this material proves useful, perhaps it will be cherry-picked back into the
 official tutorial or become a stand-alone tutorial of its own. For now, please
