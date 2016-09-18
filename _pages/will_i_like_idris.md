@@ -34,7 +34,7 @@ dragons.
 For now, I prefer to think of dependent types as a clean, consistent type system that builds on
 one cohesive paradigm to provide great expressive power. Over time, we as a community will learn
 the best use of this power. We will learn a lot by pushing out toward the frontier. Personally,
-I am more interested in the possibility that dependent types can make our code more expressive
-and more trustworthy, yet still simple.
+I am more interested in the possibility that dependent types will allow us to write simple,
+expressive, and trustworthy code.
 
 The next section will help you with [Understanding Dependent Types](/understanding_dependent_types).
