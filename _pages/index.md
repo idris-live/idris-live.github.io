@@ -24,7 +24,8 @@ experience for all of us.
 | [Understanding Dependent Types](/understanding_dependent_types)| for a taste of dependent types, or if they get confusing | everyone new to dependent types |
 | [How Do Proofs Fit Into This?](/how_do_proofs_fit)| before reading *Example: The Well-Typed Interpreter* in the official tutorial | everyone new to dependent types |
 
-<br />
+## How To Participate
+
 This site is maintained [on GitHub](https://github.com/idris-live/idris-live.github.io).
 Comments and PRs are invited. If this material proves useful,
 perhaps it will be cherry-picked back into the official tutorial or elsewhere.
