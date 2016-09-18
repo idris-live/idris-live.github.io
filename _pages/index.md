@@ -5,7 +5,8 @@ permalink: /
 
 # idris.live
 
-**_Work in progress! Not yet useful._**
+*Work in progress!* Not yet useful.
+{: .notice--warning}
 
 This site supplements the official [Idris Tutorial](http://docs.idris-lang.org/en/latest/tutorial/)
 to provide a gentler introduction for programmers who don't already
