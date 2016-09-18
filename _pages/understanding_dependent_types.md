@@ -1,4 +1,5 @@
 ---
+author_profile: true
 permalink: /understanding_dependent_types
 ---
 
