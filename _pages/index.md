@@ -1,6 +1,13 @@
 ---
 author_profile: true
 permalink: /
+sidebar:
+  - title: "Purpose"
+    text: "This site supplements the official [Idris Tutorial](http://docs.idris-lang.org/en/latest/tutorial/) to provide a gentler introduction."
+  - title: "Work in progress!"
+    text: "Dean is not associated with the Idris project and has not yet written much Idris code."
+  - title: "How to Participate"
+    text: "This site is maintained [on GitHub](https://github.com/idris-live/idris-live.github.io). Comments, PRs, and unabashed plagiarism are invited."
 ---
 
 # idris.live
