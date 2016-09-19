@@ -1,5 +1,17 @@
 import Data.Vect
 
+strange : (n : Nat) -> if n == 0 then Int else String
+strange Z = 0
+strange (S k) = "positive"
+
+strange_length : (s : String) -> if length s == 0 then Int else String
+strange_length s = strange (length s)
+
+-- Doesn't compile
+strange_length_broken : (s : String) -> if length s == 0 then Int else String
+strange_length_broken s = strange (length s + 1)
+
+
 {-
 zip_replicas_broken : (numAs : Nat) -> a -> (numBs : Nat) -> b -> Vect numAs (a, b)
 zip_replicas_broken numAs valA numBs valB =

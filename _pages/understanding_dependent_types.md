@@ -11,7 +11,9 @@ _Updated September 18, 2016_
 > A dependent type is a type whose definition depends on a value. A "pair of integers" is a type.
 > A "pair of integers where the second is greater than the first" is a dependent type because of the dependence on the value.
 
-One canonical introductory example of a dependent type is `Vect n a`, which represents a list of `n` values of type `a`.
+Introductions to dependent types often use the example `Vect n a`, which represents a list of `n` values of type `a`.
+For example, `Vect 3 String` is a list of 3 strings.
+
 The Idris standard library declares a function `replicate` that creates a vector which repeats a specified value a
 specified number of times:
 
@@ -19,51 +21,67 @@ specified number of times:
 replicate : (n : Nat) -> (x : a) -> Vect n a
 ~~~
 
-The declaration can be read as, "`replicate` is a function that takes a natural number `n` and
-a value `x` of some arbitrary type `a`. It returns a `Vect` of length `n`, with values of type `a`".
-This is classic dependent typing: the value of a parameter to the `replicate` function is used in
-defining the return type of the function.
+The declaration can be read as follows: "`replicate` is a function that takes a natural number `n` and
+a value `x` of some arbitrary type `a`. It returns a `Vect` of length `n` having values of type `a`".
+Notice how this fits Wikipedia's definition of a dependent type: the value of a parameter to the `replicate`
+function is used in defining the return type of that function.
 
-At this point, you might reasonably assume the declaration of `replicate` works because the value of `n`
+At this point, you might reasonably assume that the declaration of `replicate` works because the value of `n`
 just feeds into a "parameter" of the `Vect` type rather than a completely changing the function's type.
-(Technically we would call `n` an _index_ of `Vect`; the data type `a` is a _parameter_.)
+(Technically we would call `n` an _index_ of `Vect`; we would call the data type `a` a _parameter_ of `Vect`.)
 But in fact, the dependent type paradigm is fully general -- it's
 [turtles all the way down](https://en.wikipedia.org/wiki/Turtles_all_the_way_down).
-Continuing to use functions as our example, the return type of a function can depend arbitrarily
-on values of the function's parameters.
+The return type of a function, for example, can be freely calculated from the values of its parameters.
 
-For example, the following declaration is strange but valid:
-
-~~~
-strange: (n : Nat) -> if n == 0 then Int else String
-~~~
-
-`strange` is a function of a natural number `n` that returns an `Int` of `n` is zero, and otherwise a `String`.
-As a next step in seeing the flavor of Idris, here is a complete definition of a suitable `strange` function:
+Going a bit further into this new world, the following declaration is strange but valid:
 
 ~~~
 strange: (n : Nat) -> if n == 0 then Int else String
+~~~
+
+This declares `strange` as a function of a natural number `n`. If `n` is zero then it returns an `Int`; otherwise, it returns
+a `String`. Here is the complete definition of a suitable `strange` function:
+
+~~~
+strange : (n : Nat) -> if n == 0 then Int else String
 strange Z = 0
-strange (S k) = "non-zero"
+strange (S k) = "positive"
 ~~~
 
 The data type `Nat` is declared in Idris' standard library to represent non-negative integers. The `Nat` type
 turns out to be very useful in type signatures both because natural numbers come up frequently in the real world
 (you never saw a list of -3 items, nor a list of 3.14 items), and because the `Nat` type is easy to manipulate
 in ways that the Idris compiler understands. The Idris library declares two constructors for `Nat` values:
-`Z` represents zero, while `S k` represents the successor of another `Nat` called `k`.
+`Z` represents zero, while `S k` represents the successor of some other `Nat` called `k`.
 
-In Idris, as in Haskell and some other functional languages, a function definition can be defined for multiple
-cases representing different patterns matched by the function parameters.
-In this case, we have defined `strange` to return `0` for `Z`, or  else `"non-zero"` for any `S k`.
+In Idris, as in Haskell and some other functional languages, we can provide separate definitions for
+the same function invoked with arguments matching different patterns.
+In this case, we have defined `strange` to return `0` for `Z`, or  else `"positive"` for any `S k`.
 We can try this out in the Idris REPL:
 
 ~~~
 *strange> strange 0
 0 : Int
 *strange> strange 1
-"non-zero" : String
+"positive" : String
 *strange>
+~~~
+
+Demonstrating this in the REPL may give you the impression that you are seeing some form of dynamic typing.
+The behavior shown above wouldn't look out of place in Python, for example. But in Idris, this is static
+typing all the way down. Here is a function that uses `strange` correctly, and that compiles:
+
+~~~
+strange_length : (s : String) -> if length s == 0 then Int else String
+strange_length s = strange (length s)
+~~~
+
+Here is a function that doesn't use `strange` properly, and that doesn't compile:
+
+~~~
+-- Doesn't compile
+strange_length_broken : (s : String) -> if length s == 0 then Int else String
+strange_length_broken s = strange (length s + 1)
 ~~~
 
 So what type does `strange` actually have? It has exactly the type we gave it:
@@ -73,32 +91,32 @@ So what type does `strange` actually have? It has exactly the type we gave it:
 strange : (n : Nat) -> if n == 0 then Int else String
 ~~~
 
-As I was beginning my journey into Idris, I had a hard time getting used to unevaluated expressions (such as the
-return type above) lingering at compile time as real things. From my previous 40 years of programming, I am used to
-programming languages working like calculators: we can write down `x + 3` in the source code, but it just
-represents the operation of adding `3` to some particular value stored in `x`. In traditional languages, we don't
-manipulate `x + 3` as an expression. But in the Idris type system, we do. I have gradually gotten used to thinking
+Early in one's journey into Idris, it may seem strange that unevaluated expressions (such as the
+return type above) linger at compile time as real things. Most programming languages work more like calculators:
+we may write down `x + 3` in the source code, but it just
+represents the operation of adding `3` to some particular value stored in `x`. In most languages, we don't
+manipulate `x + 3` as an expression. But in the Idris type system, we do. It is helpful to think
 of the Idris type system as more like algebra than like a calculator. (Technically, it is closer to a [typed lambda calculus](https://en.wikipedia.org/wiki/Typed_lambda_calculus),
 but that's an unnecessarily intimidating name for what's going on.)
 
 To provide a first glimpse of the expressive power of dependent types, let's look at some more functions involving
-`Vect`s. Here is the type declaration for an infix operator `++` that appends two `Vect`s:
+`Vect`s. Here is the declaration of an infix operator `++` that appends two `Vect`s:
 
 ~~~
 (++) : Vect m a -> Vect n a -> Vect (m + n) a
 ~~~
 
-To my eye, that is quite expressive! `++` could conceivably do something other than append its two
+That is quite expressive! `++` could conceivably do something other than append its two
 arguments, but just from the type declaration we'd all be shocked if it did.
 
-Let's look for a function involving `Vect`s where the type declaration seems likely to help prevent common errors.
+Let's look for a function involving `Vect`s where the type declaration looks helpful in preventing common errors.
 Here's a classic:
 
 ~~~
 zip : Vect n a -> Vect n b -> Vect n (a, b)
 ~~~
 
-The `zip` function is a basic operation of most functional programming: given two lists of the same length,
+The `zip` function is a basic operation of most functional programming. Given two lists of the same length,
 it produces a list of corresponding pairs. For example, in the Idris REPL:
 
 ~~~
@@ -132,7 +150,7 @@ Idris> :module Data.Vect
 ~~~
 
 The error message is probably mystifying to an Idris newcomer, but for someone with just a little fluency
-in Idris it is fairly helpful. It essentially says that type-checking of our call
+in Idris it is fairly readable. It essentially says that type-checking of our call
 to `Vect.zip` failed as it recursed down through the recursive definition of the `Vect` data type,
 when it eventually tried to match a non-zero-length `Vect` type with a zero-length `Vect` type.
 
@@ -160,7 +178,7 @@ zip_replicas_broken numAs valA numBs valB =
   in Vect.zip aVec bVec
 ~~~
 
-The Idris compiler gives an excellent error message (although we added the line breaks):
+The Idris compiler gives an excellent error message (although the line breaks are added):
 
 ~~~
 When checking right hand side of zip_replicas_broken with expected type Vect numAs (a, b)
@@ -264,9 +282,23 @@ S n
 
 This is exactly what it needs to type-check `zip_replicas_successor` as defined above.
 
-If, instead, we really like writing `n + 1` in our type signatures
-(like we tried to do in `zip_replicas_successor_broken` above),
-we have to give the Idris compiler a little help to see our deeper truth:
+A more subtle reason to throw up our hands in frustration might be that our code just depended on
+the _implementation_ of `plus`! If the definition of `plus` were changed to recurse on the right-hand
+argument instead of the left-hand argument, our code would break. Doesn't that horribly break
+encapsulation? No: the definition of `plus` is explicitly declared as `public export`, which
+deliberately makes it transparent so the Idris type system can do algebra on it. (You can't see
+this in the definition of `plus` above because it is declared as a default for that whole file.)
+If `plus` were instead just declared `export`, then uses of `plus` could only depend on its
+type signature.
+
+Ok, suppose we really do want to write `n + 1` in our type signature,
+like we tried to do in `zip_replicas_successor_broken` above. To make this work,
+we have to give the Idris compiler a little help to see our deeper truth.
+
+You may remember from high-school algebra that addition is commutative: x + y = y + x.
+To get `zip_replicas_successor2` to type-check, we have to explicitly point out
+the commutativity of addition to the Idris compiler. This enables the compiler to
+recognize that `bVec`'s type `Vect (S n) b` is the same as the expected type, `Vect (plus n 1) b`.
 
 ~~~
 zip_replicas_successor2 : (n : Nat) -> a -> b -> Vect (n + 1) (a, b)
@@ -276,25 +308,21 @@ zip_replicas_successor2 n valA valB =
   in Vect.zip aVec (rewrite plusCommutative n 1 in bVec)
 ~~~
 
-You may remember from high-school algebra that addition is commutative: x + y = y + x.
-To get `zip_replicas_successor2` to type-check, we had to explicitly point out
-the commutativity of addition to the Idris compiler. This enabled the compiler to
-recognize that `bVec`'s type `Vect (S n) b` is the same as the expected type, `Vect (plus n 1) b`.
-
-Yikes! Did the Idris compiler just force us to outline a high-school algebra proof before it would
-compile our code? Why yes, that's exactly what happened.
+Yikes! Did the Idris compiler just force us to fill in the blanks on a high-school algebra proof
+before it would compile our code? Yes, that's exactly what happened.
 
 Is this a good thing? Time will tell, as the community explores the benefits and costs
 of dependent types. But it is a plausible tradeoff. Dependent types allow us to
-express invariants and function contracts in type signatures. These are enforced by the
-Idris compiler. When we read the code, we can count on them. This extends two arguments
+express invariants and function contracts in type signatures. We have to write our code
+in such a way that the Idris compiler can verify these invariants and function contracts.
+When we read the code, we can count on them. This goes a big step further with two arguments
 commonly made for static typing:
 
 * Since any given line of code is read and reasoned about far more often then it is modified,
-  it is worth some extra time to add machine-verified information.
+  it is worth some extra time to express useful machine-verified invariants.
 
 * We don't have to unit test what the compiler will verify.
 
 Probably some of us will end up loving this and others will end up hating it.
-But if you enjoy the benefits of traditional static typing, you may want to give
-dependent types a chance.
+But if you enjoy the solid footing that you get from traditional static types,
+you may want to give dependent types a chance.
