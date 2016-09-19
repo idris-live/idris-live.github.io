@@ -286,9 +286,15 @@ compile our code? Why yes, that's exactly what happened.
 
 Is this a good thing? Time will tell, as the community explores the benefits and costs
 of dependent types. But it is a plausible tradeoff. Dependent types allow us to
-express invariants and function contracts in type signatures. These invariants and
-contracts are then enforced by the Idris compiler. Compared to traditional static typing,
-this allows the compiler to catch even more of our mistakes. As we read code,
-it allows us to rely on the truth of all invariants and contracts expressed in type signatures.
-To gain these benefits, we have to write our Idris code in such a way that it provably adheres
-to its type signatures.
+express invariants and function contracts in type signatures. These are enforced by the
+Idris compiler. When we read the code, we can count on them. This extends two arguments
+commonly made for static typing:
+
+* Since any given line of code is read and reasoned about far more often then it is modified,
+  it is worth some extra time to add machine-verified information.
+
+* We don't have to unit test what the compiler will verify.
+
+I expect that some of us will end up loving this and others will end up hating it.
+But if you enjoy the benefits of traditional static typing, you may want to give
+dependent types a chance.
