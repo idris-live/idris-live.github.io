@@ -1,5 +1,4 @@
 ---
-author_profile: true
 permalink: /will_i_like_idris
 ---
 
