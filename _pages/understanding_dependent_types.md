@@ -295,6 +295,6 @@ commonly made for static typing:
 
 * We don't have to unit test what the compiler will verify.
 
-I expect that some of us will end up loving this and others will end up hating it.
+Probably some of us will end up loving this and others will end up hating it.
 But if you enjoy the benefits of traditional static typing, you may want to give
 dependent types a chance.
