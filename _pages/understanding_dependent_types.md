@@ -39,8 +39,13 @@ Going a bit further into this new world, the following declaration is strange bu
 strange: (n : Nat) -> if n == 0 then Int else String
 ~~~
 
-This declares `strange` as a function of a natural number `n`. If `n` is zero then it returns an `Int`; otherwise, it returns
-a `String`. Here is the complete definition of a suitable `strange` function:
+This declares `strange` as a function of a natural number `n`. If `n` is zero then it returns an `Int`. Otherwise,
+it returns a `String`. The appearance of `if`/`then`/`else` in a type signature isn't a special case.
+In Idris, types are first-class entities that can be computed and manipulated just like anything else.
+Types and values don't live in separate grammars; they can be freely mixed.
+Values can be computed and referenced at compile time. Types can be computed and referenced at runtime.
+
+Here is the complete definition of a suitable `strange` function:
 
 ~~~
 strange : (n : Nat) -> if n == 0 then Int else String
@@ -80,7 +85,7 @@ strange_length : (s : String) -> if length s == 0 then Int else String
 strange_length s = strange (length s)
 ~~~
 
-Here is a function that doesn't use `strange` properly, and that doesn't compile:
+Here is a function that doesn't use `strange` correctly, and that fails type-checking:
 
 ~~~
 -- Doesn't compile
@@ -110,8 +115,7 @@ To provide a first glimpse of the expressive power of dependent types, let's loo
 (++) : Vect m a -> Vect n a -> Vect (m + n) a
 ~~~
 
-That is quite expressive! `++` could conceivably do something other than append its two
-arguments, but just from the type declaration we'd all be shocked if it did.
+That is quite expressive! `++` could conceivably do something other than append its two arguments, but just from the type declaration we'd be shocked if that wasn't what it did.
 
 Let's look for a function involving `Vect`s where the type declaration looks helpful in preventing common errors.
 Here's a classic:
