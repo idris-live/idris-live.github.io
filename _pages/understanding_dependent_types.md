@@ -115,7 +115,7 @@ To provide a first glimpse of the expressive power of dependent types, let's loo
 (++) : Vect m a -> Vect n a -> Vect (m + n) a
 ~~~
 
-That is quite expressive! `++` could conceivably do something other than append its two arguments, but just from the type declaration we'd be shocked if that wasn't what it did.
+That is quite expressive! `++` could conceivably do something other than append its two arguments, but just from the type signature we'd be shocked if that wasn't what it did.
 
 Let's look for a function involving `Vect`s where the type declaration looks helpful in preventing common errors.
 Here's a classic:
