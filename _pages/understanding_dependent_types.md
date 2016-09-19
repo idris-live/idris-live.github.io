@@ -133,7 +133,7 @@ Idris> zip [1, 2, 3] ["a", "b", "c"]
 ~~~
 
 The standard libraries of different functional programming languages differ on what `zip` should do if its
-input lists have different lengths. In some languages, it is a runtime error. In others, excess elements of the
+input lists have different lengths. In some languages, this is a runtime error. In others, excess elements of the
 longer list are silently ignored. In Idris, it is a compile-time type-checking error to try to `zip` `Vect`s
 of different lengths! We can see this happen in the Idris REPL:
 
