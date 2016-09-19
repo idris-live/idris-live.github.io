@@ -24,3 +24,7 @@ _Updated September 18, 2016_
 ## Coming Soon
 
 | The Role of Proofs| before reading *Example: The Well-Typed Interpreter* in the official tutorial | everyone new to dependent types |
+
+<br />
+For an authoritative introduction to Idris, see the work-in-progress book by its creator, Edwin Brady:
+[Type-Driven Development with Idris](https://www.manning.com/books/type-driven-development-with-idris).

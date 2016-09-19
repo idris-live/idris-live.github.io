@@ -48,6 +48,10 @@ strange Z = 0
 strange (S k) = "positive"
 ~~~
 
+__Note:__ The sample code for this chapter is in GitHub, in
+[understanding_dependent_types.idr](https://github.com/idris-live/idris-live.github.io/blob/master/_sample_idris_code/understanding_dependent_types.idr).
+{: .notice--info}
+
 The data type `Nat` is declared in Idris' standard library to represent non-negative integers. The `Nat` type
 turns out to be very useful in type signatures both because natural numbers come up frequently in the real world
 (you never saw a list of -3 items, nor a list of 3.14 items), and because the `Nat` type is easy to manipulate
