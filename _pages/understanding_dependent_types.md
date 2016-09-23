@@ -4,7 +4,12 @@ permalink: /understanding_dependent_types
 
 # Understanding Dependent Types
 
-_Updated September 18, 2016_
+Updated September 23, 2016
+{: .small}
+
+*Work in progress!* This tutorial has not yet been reviewed by the Idris community. The lead author, Dean,
+is still new to Idris. See *Participating* in left sidebar.
+{: .notice--warning}
 
 [Wikipedia](https://en.wikipedia.org/wiki/Dependent_type) provides a good top-level definition of dependent types:
 
