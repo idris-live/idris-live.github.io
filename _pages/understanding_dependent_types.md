@@ -12,7 +12,9 @@ reading for the [Dependent Types](http://docs.idris-lang.org/en/latest/tutorial/
 section of the official [Idris Tutorial](http://docs.idris-lang.org/en/latest/tutorial/).
 
 **Work in progress!** This tutorial has not yet been reviewed by the Idris community. The lead author, Dean,
-is still new to Idris. See **Participating** in the left sidebar.
+is still new to Idris. See **Participating** in the left sidebar. Dean opened a discussion thread about this
+tutorial in the [Idris Programming Language](https://groups.google.com/forum/#!topic/idris-lang/a5SdUl9W0KY)
+Google group.
 {: .notice--warning}
 
 [Wikipedia](https://en.wikipedia.org/wiki/Dependent_type) provides a good top-level definition of dependent types:
