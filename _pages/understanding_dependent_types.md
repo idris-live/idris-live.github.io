@@ -9,7 +9,7 @@ Updated September 23, 2016
 
 This tutorial is intended to give a first taste of dependent types in Idris. It can also be used as supplemental
 reading for the [Dependent Types](http://docs.idris-lang.org/en/latest/tutorial/typesfuns.html#dependent-types)
-section of the [official Idris tutorial](http://docs.idris-lang.org/en/latest/tutorial/).
+section of the official [Idris tutorial](http://docs.idris-lang.org/en/latest/tutorial/).
 
 **Work in progress!** This tutorial has not yet been reviewed by the Idris community. The lead author, Dean,
 is still new to Idris. See **Participating** in the left sidebar.
