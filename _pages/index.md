@@ -15,6 +15,8 @@ _Updated September 18, 2016_
 
 ## Coming Soon
 
+| Section | When to Read It | Intended Audience |
+|---------|-----------------|-------------------|
 | Will I like Idris? | before the official tutorial | everyone new to Idris |
 | The Role of Proofs| before reading *Example: The Well-Typed Interpreter* in the official tutorial | everyone new to dependent types |
 
