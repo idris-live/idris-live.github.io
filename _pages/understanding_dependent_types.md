@@ -4,7 +4,7 @@ permalink: /understanding_dependent_types
 
 # Introduction to Dependent Types
 
-Updated September 23, 2016
+Updated September 24, 2016
 {: .small}
 
 This tutorial is intended to give a first taste of dependent types in Idris. It can also be used as supplemental
