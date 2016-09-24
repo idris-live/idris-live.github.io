@@ -69,7 +69,7 @@ strange Z = 0
 strange (S k) = "positive"
 ~~~
 
-__Note:__ The sample code for this chapter is in GitHub, in
+__Note:__ The sample code for this tutorial is in GitHub, in
 [understanding_dependent_types.idr](https://github.com/idris-live/idris-live.github.io/blob/master/_sample_idris_code/understanding_dependent_types.idr).
 {: .notice--info}
 
