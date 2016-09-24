@@ -35,13 +35,24 @@ a value `x` of some arbitrary type `a`. It returns a `Vect` of length `n` having
 Notice how this fits Wikipedia's definition of a dependent type: the return type of `replicate` depends
 on the value of one of `replicate`'s arguments.
 
-At this point, you might reasonably imagine that this declaration of `replicate` works because the value of `n`
-just feeds into a "parameter" of the `Vect` return type, rather than completely changing the return type.
-(Technically we would call `n` an _index_ of `Vect`; the data type `a` is a _parameter_ of `Vect`.)
-But in fact, the dependent type paradigm is fully general -- it's
-[turtles all the way down](https://en.wikipedia.org/wiki/Turtles_all_the_way_down).
+From the name `replicate` and the type signature, it is easy to guess correctly that the `Vect`
+returned by `replicate` consists of the value `x` repeated `n` times.
+In fact, this is the only possible behavior of `replicate`. The reason is that Idris deliberately
+makes it impossible for a function to change its runtime flow of control based on a type (like `a`)
+used as a parameter in the function declaration.
+Since `a` could be any type whatsoever, and our function cannot change its flow of control by
+examining `a` (for example, it cannot say `if a == Int`), the only value of type `a`
+that our function can possibly use is the value `x` that it is given.
+This characteristic of Idris and some other languages is called
+[parametricity](https://en.wikipedia.org/wiki/Parametricity). This restriction does _not_
+apply to non-type arguments like `n`.
 
-The return type of a function can be freely calculated from the values of its parameters. The following declaration,
+You might reasonably imagine that, in the declaration of `replicate` above, the return type's dependency
+on the function's argument `n` works because the value of `n`
+is only passed as an argument to the `Vect` return type, rather than completely changing the return type.
+But in fact, the dependent type paradigm is fully general -- it's
+[turtles all the way down](https://en.wikipedia.org/wiki/Turtles_all_the_way_down). The return type of a
+function can be freely calculated from the values of its arguments. The following declaration,
 for example, is strange but valid:
 
 ~~~

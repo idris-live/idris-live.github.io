@@ -9,6 +9,15 @@ strangeLength s = strange (length s)
 
 {-
 -- Doesn't compile
+replicateWithWart : (n : Nat) -> a -> Vect n a
+replicateWithWart {a} n x =
+  case a of
+    Int => replicate n 0
+    _   => replicate n x
+-}
+
+{-
+-- Doesn't compile
 strangeLengthBroken : (s : String) -> if length s == 0 then Int else String
 strangeLengthBroken s = strange (length s + 1)
 -}
