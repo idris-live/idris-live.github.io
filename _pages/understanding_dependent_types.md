@@ -2,7 +2,7 @@
 permalink: /understanding_dependent_types
 ---
 
-# Understanding Dependent Types
+# Introduction to Dependent Types
 
 Updated September 23, 2016
 {: .small}
