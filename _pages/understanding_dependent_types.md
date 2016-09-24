@@ -16,11 +16,7 @@ is still new to Idris. See **Participating** in the left sidebar. Dean opened a 
 tutorial in the Idris Programming Language Google group.
 {: .notice--warning}
 
-[Wikipedia](https://en.wikipedia.org/wiki/Dependent_type) provides a good top-level definition of dependent types:
-
-> A dependent type is a type whose definition depends on a value. A "pair of integers" is a type.
-> A "pair of integers where the second is greater than the first" is a dependent type because of the dependence on the value.
-
+A dependent type is a type that is parameterized on a non-type value.
 Introductions to dependent types often use the example `Vect n a`, which represents a list of `n` values of type `a`.
 For example, `Vect 3 String` is a list of 3 strings.
 
@@ -32,7 +28,7 @@ replicate : (n : Nat) -> (x : a) -> Vect n a
 
 This declaration can be read as follows: "`replicate` is a function that takes a natural number `n` and
 a value `x` of some arbitrary type `a`. It returns a `Vect` of length `n` having values of type `a`".
-Notice how this fits Wikipedia's definition of a dependent type: the return type of `replicate` depends
+It nicely illustrates the nature of a dependent type: the return type of `replicate` depends
 on the value of one of `replicate`'s arguments.
 
 From the name `replicate` and the type signature, it is easy to guess correctly that the `Vect`
