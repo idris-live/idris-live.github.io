@@ -8,12 +8,25 @@ strangeLength : (s : String) -> if length s == 0 then Int else String
 strangeLength s = strange (length s)
 
 {-
--- Doesn't compile
+-- Doesn't compile, because Idris enforces parametricity.
 replicateWithWart : (n : Nat) -> a -> Vect n a
 replicateWithWart {a} n x =
   case a of
     Int => replicate n 0
     _   => replicate n x
+-}
+
+useTortured : a -> b -> (Type, a, b)
+useTortured {a} {b} x y = tortured [a, b] x y
+
+-- Doesn't compile
+useTorturedBroken : a -> b -> (Type, a, b)
+useTorturedBroken {a} {b} x y = tortured [a, b] x x
+
+{-
+-- Doesn't compile
+useTorturedBroken : (x : a) -> (y : b) -> (Type, a, b)
+useTorturedBroken {a} {b} x y = tortured [a, b] x x
 -}
 
 {-
