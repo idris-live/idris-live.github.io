@@ -11,7 +11,8 @@ _Updated September 18, 2016_
 
 | Section | When to Read It | Intended Audience |
 |---------|-----------------|-------------------|
-| [Introduction to Dependent Types](/understanding_dependent_types)| either as a preview before the [official tutorial](http://docs.idris-lang.org/en/latest/tutorial/) or as a supplement to its [Dependent Types](http://docs.idris-lang.org/en/latest/tutorial/typesfuns.html#dependent-types) section  | anyone new to dependent types |
+| [Introduction to Dependent Types](/understanding_dependent_types)| either a first look at Idris, or as supplemental reading to the [Dependent Types](http://docs.idris-lang.org/en/latest/tutorial/typesfuns.html#dependent-types)
+section of the official Idris Tutorial | anyone new to Idris |
 
 ## Coming Soon
 
