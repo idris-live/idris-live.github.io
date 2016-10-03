@@ -17,8 +17,8 @@ _Updated September 18, 2016_
 
 | Section | When to Read It | Intended Audience |
 |---------|-----------------|-------------------|
-| Will I like Idris? | before the official tutorial | everyone new to Idris |
-| The Role of Proofs| before reading *Example: The Well-Typed Interpreter* in the official tutorial | everyone new to dependent types |
+| Will I like Idris? | before the official tutorial | anyone new to Idris |
+| Proofs in Idris | before reading *Example: The Well-Typed Interpreter* in the official tutorial | everyone new to dependent types |
 
 
 __Note:__ For an authoritative introduction to Idris, see the work-in-progress book by its creator, Edwin Brady:
